@@ -9,6 +9,7 @@ import Layout from './components/layout.tsx'
 import { malaguenaSteps } from './songs/malaguena.tsx'
 import { presagioSteps } from './songs/presagio.ts'
 import { reflectionsSoundSong } from './songs/reflections-sound.ts'
+import { reflectionsFormSong } from './songs/reflections-form.tsx'
 
 const rootElement = document.getElementById('root')
 if (rootElement) {
@@ -23,6 +24,7 @@ if (rootElement) {
               path='reflections-sound'
               element={<App song={reflectionsSoundSong} />}
             />
+            <Route path='reflections-form' element={<App song={reflectionsFormSong} />} />
           </Route>
         </Routes>
       </HashRouter>
