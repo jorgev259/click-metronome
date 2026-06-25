@@ -1,9 +1,5 @@
 import type { Step, Beat, FullStep } from './types'
 
-import clickStrong from '../sounds/click-strong.wav'
-import clickWeak from '../sounds/click-weak.wav'
-import { Howl } from 'howler'
-
 function bpmToMilliseconds(bpm: number): number {
   return 60000 / bpm
 }
@@ -47,7 +43,11 @@ export function stepsToBeats(steps: Step[]): {
     }
   }
 
-  const generateRitBeats = (ritSteps: FullStep[], bpmStart: number, bpmEnd: number) => {
+  const generateRitBeats = (
+    ritSteps: FullStep[],
+    bpmStart: number,
+    bpmEnd: number
+  ) => {
     let totalBeats = 0
     for (const s of ritSteps) {
       totalBeats += s.compasses * s.measure
@@ -156,6 +156,3 @@ export function stepsToBeats(steps: Step[]): {
 
   return { beats, steps: fullSteps }
 }
-
-export const strongSound = new Howl({ src: [clickStrong], preload: true })
-export const weakSound = new Howl({ src: [clickWeak], preload: true })
